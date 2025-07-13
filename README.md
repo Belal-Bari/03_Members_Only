@@ -29,24 +29,24 @@ A Node.js and Express-based web application that allows users to sign up, log in
 
 ## 🏗️ Project Structure
 
-project-root/
-├── db/
-│ ├── auth.js # Passport strategy setup
-│ ├── pool.js # PostgreSQL pool configuration
-│ └── queries.js # All database query functions
-├── routes/
-│ └── blogRouter.js # All app routes
-├── views/
-│ ├── index.ejs
-│ ├── sign-up-page.ejs
-│ ├── login-page.ejs
-│ ├── create-post.ejs
-│ ├── join-club.ejs
-│ └── admin.ejs
-├── app.js
-├── package.json
-├── package-lock.json
-└── README.md
+project-root/</br>
+├── db/</br>
+│ ├── auth.js # Passport strategy setup</br>
+│ ├── pool.js # PostgreSQL pool configuration</br>
+│ └── queries.js # All database query functions</br>
+├── routes/</br>
+│ └── blogRouter.js # All app routes</br>
+├── views/</br>
+│ ├── index.ejs</br>
+│ ├── sign-up-page.ejs</br>
+│ ├── login-page.ejs</br>
+│ ├── create-post.ejs</br>
+│ ├── join-club.ejs</br>
+│ └── admin.ejs</br>
+├── app.js</br>
+├── package.json</br>
+├── package-lock.json</br>
+└── README.md</br>
 
 
 ---

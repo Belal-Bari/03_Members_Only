@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Create Post</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f7f9fc;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 50px 20px;
+                min-height: 100vh;
+            }
+
+            h1 {
+                color: #2c3e50;
+                margin-bottom: 30px;
+            }
+
+            form {
+                background-color: #ffffff;
+                padding: 25px 30px;
+                border-radius: 10px;
+                box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+                width: 100%;
+                max-width: 600px;
+            }
+
+            label {
+                display: block;
+                margin-bottom: 10px;
+                font-size: 18px;
+                color: #333333;
+            }
+
+            input[type="text"] {
+                width: 100%;
+                height: 100px;
+                padding: 10px;
+                font-size: 16px;
+                border: 1px solid #ccc;
+                border-radius: 6px;
+                resize: vertical;
+                margin-bottom: 20px;
+                box-sizing: border-box;
+            }
+
+            button {
+                background-color: #3498db;
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 6px;
+                font-size: 16px;
+                cursor: pointer;
+            }
+
+            button:hover {
+                background-color: #2980b9;
+            }
+
+            p {
+                color: #555;
+                font-size: 16px;
+            }
+
+            a {
+                margin-top: 20px;
+                display: inline-block;
+                color: #3498db;
+                text-decoration: none;
+            }
+
+            a:hover {
+                text-decoration: underline;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Create Post</h1>
+
+        <% if (locals.userStatus) { %>
+            <form action="/create-post" method="POST">
+                <label for="post">What's on your mind?</label>
+                <input type="text" name="post" id="post" />
+                <button type="submit">Post</button>
+            </form>
+        <% } else { %>
+            <p>Please login or be a member to post!</p>
+        <% } %>
+
+        <a href="/">← Back to homepage</a>
+    </body>
+</html>

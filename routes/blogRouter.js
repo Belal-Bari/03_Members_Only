@@ -11,7 +11,7 @@ const CODE2 = process.env.SECRETADMINCODE;
 blogRouter.get('/', async (req, res) => {
     const posts = await getAllPosts();
     const userStatus = req.user;
-    //console.log("logged in or not:",req.user);
+    console.log("logged in or not:",req.user);
     res.render("index", {
         posts: posts,
         userStatus: userStatus

@@ -60,7 +60,7 @@
         
         <div class="nav">
             <% if (locals.userStatus) { %>
-                <a href="/logout">Log out</a>
+                <a href="/logout">Log out(<%=userStatus.name%>)</a>
                 <a href="/create-post">Create a post</a>
                 <a href="/admin">Admin Page</a>
             <% } else { %>

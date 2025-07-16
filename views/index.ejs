@@ -90,6 +90,9 @@
                             </button>
                         </form>
                     <% } %>
+                    <% if (locals.userStatus && locals.userStatus.name === post.author_name) { %>
+                        <a style="margin-top: 5px;" href="/update/<%=post.id%>">Update Post</a>
+                    <% } %>
                 </div>
             <% }) %>
         <% } %>

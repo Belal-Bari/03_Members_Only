@@ -1,6 +1,6 @@
 const express = require('express');
 const blogRouter = express.Router();
-const { getAllPosts, postNewUser, postVerifyUser, postNewPost, changeMembershipStatus, changeAdminStatus, deletePost } = require('../db/queries');
+const { getAllPosts, postNewUser, postVerifyUser, postNewPost, changeMembershipStatus, changeAdminStatus, deletePost, getPostById, updatePost } = require('../db/queries');
 const bcrypt = require('bcryptjs');
 const { passport } = require('../db/auth')
 require('dotenv').config();
@@ -11,7 +11,8 @@ const CODE2 = process.env.SECRETADMINCODE;
 blogRouter.get('/', async (req, res) => {
     const posts = await getAllPosts();
     const userStatus = req.user;
-    console.log("logged in or not:",req.user);
+    //console.log("logged in or not:",req.user);
+    //console.log("post:", posts)
     res.render("index", {
         posts: posts,
         userStatus: userStatus
@@ -110,4 +111,24 @@ blogRouter.post('/delete/:id', async (req, res) => {
     res.redirect('/');
 })
 
+blogRouter.get('/update/:id', async (req, res) => {
+    const id = req.params.id;
+    const userStatus = req.user;
+    const  post  = await getPostById(id);
+    //console.log('id:', id);
+    //console.log('post', post);
+    res.render('update', {
+        id: id,
+        userStatus: userStatus,
+        post: post
+    })
+})
+
+blogRouter.post('/update/:id', async(req,res) => {
+    const id = req.params.id;
+    const { post } = req.body;
+    console.log('post', id);
+    await updatePost(id, post);
+    res.redirect('/');
+})
 module.exports = blogRouter;

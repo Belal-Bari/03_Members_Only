@@ -98,6 +98,25 @@ async function deletePost(id){
   }
 }
 
+async function getPostById(id) {
+  try {
+    const post = await pool.query('SELECT * FROM posts WHERE id = $1', [id]);
+    console.log(post.rows[0]);
+    return post.rows[0];
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function updatePost(id, post) {
+  try {
+    await pool.query('UPDATE posts SET post = $1 WHERE id = $2', [post, id]);
+    console.log('Post updated');
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 module.exports = {
     getAllPosts,
     postNewUser,
@@ -106,5 +125,7 @@ module.exports = {
     postNewPost,
     changeMembershipStatus,
     changeAdminStatus,
-    deletePost
+    deletePost,
+    getPostById,
+    updatePost
 }

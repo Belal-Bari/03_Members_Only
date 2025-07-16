@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title>Update</title>
+    </head>
+    <body>
+        <h1>Update Post</h1>
+        <% if (locals.userStatus && (locals.userStatus.id === locals.post.author || locals.userStatus.is_admin === true)) { %>
+            <form action="/update/<%=id%>" method="POST">
+                <label for="post">Post</label>
+                <input type="text" name="post" id="post" value="<%=locals.post.post%>" />
+                <button type="submit">Post</button>
+            </form>
+        <% } else {%>
+            <p>You are not logged in or authorized!</p>
+        <% } %>
+        <a href="/">Back to homepage</a>
+    </body>
+</html>
